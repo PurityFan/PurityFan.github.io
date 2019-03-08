@@ -40,16 +40,47 @@
         .content {
             padding: 1vw;
         }
-        .box,
-        .circle {
-            height: 24.5vw;
-            padding: 1vw;
-            background-clip: content-box;
+        .panel {
+            margin: 1vw;
+            cursor: pointer;
+        }
+        .panel > div {
+            display: flex;
+            position: relative;
+            height: 22.5vw;
             background-size: cover;
             background-position: center;
+            justify-content: center;
+            align-items: center;
+            transition: all .2s linear;
         }
-        .circle {
-            border-radius: 100%;
+        .panel > div:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, .2);
+        }
+        .panel:hover > div:after {
+            background-color: rgba(255, 255, 255, .6);
+        }
+        .panel > div > * {
+            z-index: 1;
+        }
+        .panel-box > div {
+            border-radius: 0;
+        }
+        .panel-box:hover > div {
+            border-radius: 11.25vw;
+        }
+        .panel-circle > div {
+            border-radius: 11.25vw;
+        }
+        .panel-circle:hover > div {
+            border-radius: 0;
         }
     </style>
 </head>
@@ -78,15 +109,40 @@
     </ul>
 </header>
 <div class="content pure-g">
-    <div class="pure-u-1-2 box" style="background-image: url('img/intro_aboutme.JPG')">
+    <div class="pure-u-1-2">
+        <div class="panel panel-box">
+            <div style="background-image: url('img/intro_aboutme.JPG')">
+                <p>About me</p>
+            </div>
+        </div>
     </div>
-    <div class="pure-u-1-4 box" style="background-image: url('img/intro_intern.JPG')">
+    <div class="pure-u-1-4">
+        <div class="panel panel-box">
+            <div style="background-image: url('img/intro_intern.JPG')">
+                <p>Internship</p>
+            </div>
+        </div>
     </div>
-    <div class="pure-u-1-4 circle" style="background-image: url('img/intro_acm.JPG')">
+    <div class="pure-u-1-4">
+        <div class="panel panel-circle">
+            <div style="background-image: url('img/intro_acm.JPG')">
+                <p>ACM</p>
+            </div>
+        </div>
     </div>
-    <div class="pure-u-1-2 box" style="background-image: url('img/intro_projects.jpg')">
+    <div class="pure-u-1-2">
+        <div class="panel panel-box">
+            <div style="background-image: url('img/intro_projects.jpg')">
+                <p>Projects</p>
+            </div>
+        </div>
     </div>
-    <div class="pure-u-1-2 box" style="background-image: url('img/intro_games.jpg')">
+    <div class="pure-u-1-2">
+        <div class="panel panel-box">
+            <div style="background-image: url('img/intro_games.jpg')">
+                <p>Games</p>
+            </div>
+        </div>
     </div>
 </div>
 </body>
