@@ -21,26 +21,46 @@
         a:hover {
             opacity: .5;
         }
+        body {
+            min-width: 600px;
+        }
         header {
             border-bottom: 2px solid #444;
-            margin: 1vw 2vw 0;
-            padding: 1vw;
+            margin: 1em 2em 0;
+            padding: 1em;
             color: #4488ff;
+            text-align: center;
+        }
+        header > div {
+            display: inline-block;
+            position: relative;
+        }
+        header #left,
+        header #right {
+            position: absolute;
+            top: 0;
+            height: 7em;
+        }
+        header #left {
+            right: 110%;
+        }
+        header #right {
+            left: 110%;
         }
         h1 {
-            display: inline-block;
             font-size: 2.5em;
             margin: 0;
             color: #444;
         }
         .links {
-            display: inline-block;
-            margin: 0;
+            margin: 1em 0;
+            padding: 0;
+            font-size: 1em;
             vertical-align: text-bottom;
         }
         .links li {
             display: inline-block;
-            margin: 0 .3vw;
+            margin: 0 .3em;
         }
         .content {
             padding: 1vw;
@@ -88,30 +108,51 @@
             border-radius: 0;
         }
     </style>
+    <script>
+        let state = 'right';
+        function left() {
+            if (state === 'left') {
+                state = 'right';
+                document.getElementById('left').src = 'img/logo-alt.png';
+                document.getElementById('right').src = 'img/logo.png';
+            }
+        }
+        function right() {
+            if (state === 'right') {
+                state = 'left';
+                document.getElementById('left').src = 'img/logo.png';
+                document.getElementById('right').src = 'img/logo-alt.png';
+            }
+        }
+    </script>
 </head>
 <body>
 <header>
-    <h1><a href="https://PurityFan.github.io/">Purity Fan</a></h1>
-    <ul class="links">
-        <li>
-            <a href="https://github.com/PurityFan" class="fa-stack">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </a>
-        </li>
-        <li>
-            <a href="mailto:purityshufan@gmail.com" class="fa-stack">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/in/shufan-huang-928794141/" class="fa-stack">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
-            </a>
-        </li>
-    </ul>
+    <div>
+        <h1><a href="https://PurityFan.github.io/">Purity Fan</a></h1>
+        <ul class="links">
+            <li>
+                <a href="https://github.com/PurityFan" class="fa-stack">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:purityshufan@gmail.com" class="fa-stack">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/shufan-huang-928794141/" class="fa-stack">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
+                </a>
+            </li>
+        </ul>
+        <img id="left" src="img/logo-alt.png" style="transform: scaleX(-1)" onclick="left()">
+        <img id="right" src="img/logo.png" onclick="right()">
+    </div>
 </header>
 <div class="content pure-g">
     <div class="pure-u-1-2">
